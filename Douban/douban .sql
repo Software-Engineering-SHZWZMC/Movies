@@ -1,4 +1,4 @@
-﻿rank,name,picturelink,director,role,year,country,movietype,average_star,comment_num,content_tag
+﻿
 1,肖申克的救赎,https://img2.doubanio.com/view/photo/s_ratio_poster/public/p480747492.jpg,弗兰克·德拉邦特 Frank Darabont,蒂姆·罗宾斯 Tim Robbins /...,1994,美国,犯罪 剧情,0,0,
 2,霸王别姬,https://img3.doubanio.com/view/photo/s_ratio_poster/public/p2561716440.jpg,陈凯歌 Kaige Chen,张国荣 Leslie Cheung / 张丰毅 Fengyi Zha...,1993,中国大陆 中国香港,剧情 爱情 同性,0,0,
 3,阿甘正传,https://img2.doubanio.com/view/photo/s_ratio_poster/public/p2372307693.jpg,罗伯特·泽米吉斯 Robert Zemeckis,汤姆·汉克斯 Tom Hanks / ...,1994,美国,剧情 爱情,0,0,
