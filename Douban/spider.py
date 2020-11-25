@@ -24,7 +24,7 @@ def main():
         get_page_info(html, info)
     data = pd.DataFrame(info)
 
-    data.to_excel('movies.xlsx', encoding="utf_8_sig")
+    data.to_excel('moviessummary.xlsx', encoding="utf_8_sig")
 
 
 #提交请求，获取页面
@@ -64,6 +64,7 @@ def get_movie_details(href, details):
     html = get_html_text(href)
     soup = BeautifulSoup(html, 'html.parser')
     moviename = soup.find('span', property="v:itemreviewed").text.split(' ')
+    '''
     details['排名'] = rank
     details['电影名字'] = moviename[0]
     picturelink = soup.find('img')
@@ -106,8 +107,9 @@ def get_movie_details(href, details):
         details[('标签' + str(i))] = tag.text
         i = i + 1
     details['评价人数'] = 0
-    details['平均星数'] = 0
-    print(details)
+    details['平均星数'] = 0'''
+    summary = soup.find('span', property="v:summary").text
+    details['剧情简介'] = summary
     print("已爬取完第" + str(rank) + "部")
     time.sleep(1)
 
