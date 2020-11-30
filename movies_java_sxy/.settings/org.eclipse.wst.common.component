@@ -1,8 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
-    <wb-module deploy-name="movies_java_sxy">
+        
+    <wb-module deploy-name="Movies_sxy">
+                
         <wb-resource deploy-path="/" source-path="/WebContent" tag="defaultRootSource"/>
+                
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src"/>
-        <property name="context-root" value="movies_java_sxy"/>
-        <property name="java-output-path" value="/movies_java_sxy/build/classes"/>
+                
+        <property name="java-output-path" value="/Movies_sxy/build/classes"/>
+        <property name="context-root" value="Movies_sxy"/>
+            
     </wb-module>
+    
 </project-modules>

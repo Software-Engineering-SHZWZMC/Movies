@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<script>
+	function getInfo(){
+		var pos,parastr,para;
+		//获取链接
+		var hrefStr=window.location.href;
+		pos=hrefStr.indexOf("?");
+		parastr=hrefStr.substring(pos+1);
+		para=parastr.split("&");
+		//得到name=?&password=?
+		var name=para[0].split("=");
+		var password=para[1].split("=");
+		//给输入框赋值
+		document.form1.username.value=name[1];
+		document.form1.password.value=password[1];
+	}
+</script>
+<body onload="getInfo()">
+	<form action="movies.jsp" method="post" name="form1">
+		用户名：<input type="text" name="username" id="username"/><br/>
+		密码：<input type="password" name="password" id="password" /><br/>
+		<input type="submit" value="登录" />
+	</form>
+	<!-- 相对路径 -->
+	<!-- <img src="../img/1.jpg" width="100px" height="100px"/> -->
+	<!-- 绝对路径 -->
+	<!-- <img src="http://127.0.0.1:8080/dur3_ex/img/1.jpg" width="100px" height="100px"/> -->
+</body>
+</html>
