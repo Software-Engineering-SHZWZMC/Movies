@@ -31,7 +31,7 @@
             <image src="../img/2.jpg" name="图标" width=100px height=100px></image>
         </div>
         <div style="width: 100px;float:right;">
-        <a href="index.html" target="blank">登录/注册</a></div>
+        <a href="login.jsp" target="blank">登录/注册</a></div>
 
            
             
@@ -75,7 +75,7 @@ String passlink[]=new String[8];
             String username = "root";  //数据库用户名
             String password = "sxy000217";  //数据库用户密码
             Connection conn = DriverManager.getConnection(url, username, password);  //连接状态
-			
+
             if(conn != null)
             {            
                 Statement stmt = null;  
@@ -83,21 +83,14 @@ String passlink[]=new String[8];
                 stmt = conn.createStatement();  
                 ResultSet rs = stmt.executeQuery(sql);  
                 out.print("<br />");  
-               	
                 int i=0;
                 while(rs.next()) 
                 { 
-                	
               		picturelink=rs.getString(3);
                 	out.println();
-                	
                 	allmovielink[i]="..image/"+picturelink;
-                	
-                	i++;
-                	
+                	i++;	
             	}
-                
-
             }
             else{  
                 out.print("连接失败！");  
