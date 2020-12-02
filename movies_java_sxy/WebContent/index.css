@@ -1,0 +1,201 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html,body{
+
+padding-right:5%;
+padding-left:5%;
+background:url("../img/1.jpg");
+
+justify-content:center;
+align-items:center;
+}
+.body{
+min-height:100vh;
+}
+.clear {
+    clear:both;
+}
+.index{
+    
+    margin-top: 0px;
+    margin-right: auto;
+    margin-bottom: 0px;
+    margin-left: auto;
+    height: 100px;
+    background:url("../img/2.jpg")
+    }
+.index h1{
+    vertical-align: sub;
+    float: left;
+    margin-top: 30px;
+    font-size: 54px;
+    text-transform: none;
+    font-family: "华文行楷";
+    font-weight: lighter;
+    color: #F89165;
+}
+.index ul{
+    width: auto;
+    position: relative;
+    float: right;
+    margin-top: 20px;
+    font-style: italic;
+    list-style-type:none;
+    }
+.index li {
+    float: left;
+    width: 70px;
+    height: 40px;
+    line-height: 40px;
+    background: url('../img/2.jpg') no-repeat 0px;
+    cursor: pointer;
+    -webkit-transition: all 0.5s;
+    -moz-transition: all 0.5s;
+    -ms-transition: all 0.5s;
+    -o-transition: all 0.5s;
+    transition: all 0.5s;
+    font-size: 15px;
+    
+    list-style-type:none;
+}
+.index li:nth-child(2) {
+    color: #fff;
+}
+a:link,a:visited{
+ text-decoration:none;  /*超链接无下划线*/
+}
+<!--搜索框CSS
+-->
+
+
+.box{
+    background-color: red;
+    border: 1px solid #eeeeee;
+    border-radius: 6px;
+    font-size: 14px;
+    text-align: center;
+    display:flex;
+    
+}
+
+/**
+  *label标签样式 放在.box下，不至于影响其他的label
+  *采取绝对定位，位置根据需求确定
+*/
+.box label{
+    z-index: 2;
+    position: absolute;
+    left: 50%;
+    margin-left: -8%;
+    color: #B2B2B2;
+    top: 4.8rem;
+    font-weight: normal;
+}
+
+/**
+  *input标签样式
+  *宽度适应外层div
+  *隐藏边框
+  *这里有个小技巧，height与line-height值相等，可保证文字垂直居中；但我发现文字比图标略偏下，进行了微调；
+*/
+.box input[type="text"]{
+    text-indent: 10px;
+    height: 1.8rem;
+    line-height: 1.9rem;
+    
+    width: 50%;
+    border: none;
+    outline: none;
+    background:none;
+    border:2px solid #1E90FF;
+    margin:20px auto;
+    padding:1px 3px;
+    border-radius:24px;
+    color:blue;
+    transition: 0.25s;
+    text-align: center;
+}
+.box input[type="submit"]{
+    text-indent: 10px;
+    height: 1.8rem;
+    line-height: 1.9rem;
+    
+    
+    border: none;
+    outline: none;
+    background:none;
+    border:2px solid #1E90FF;
+    margin:20px auto;
+    padding:0px 10px;
+    border-radius:24px;
+    color:black;
+    transition: 0.25s;
+    font-family: "华文行楷";
+    
+}
+/**
+  *图标样式
+  *绝对定位，自定义颜色
+*/
+.box img{
+    height:1.8rem;
+    top: 4.8rem;
+    left: 50%;
+    margin-left: -15%;
+    color: #B2B2B2;
+    height:1.8rem;
+}
+ 
+
+/***3. JS代码：
+
+/**
+ *  js判断input输入框中是否有值，以此来判断是否隐藏默认提示信息
+ *  使用keyup事件
+ 
+$(function() {
+    $('#q').on('keyup',function() {
+        var len = document.getElementById('q').value; 
+        if(len == ''){
+            $('#q_label').show();
+            $('#q_i').show();
+        }else{
+            $('#q_label').hide();
+            $('#q_i').hide();
+        }
+    });
+})***/
+/***滑动动画的class***/
+.swiper-container {
+      width: 100%;
+      height: 100%;
+      margin-left: auto;
+      margin-right: auto;
+      padding-top:50px;
+      padding-bottom:50px;
+    }
+
+    .swiper-slide {
+      text-align: center;
+      font-size: 18px;
+      background: #fff;
+
+      /* Center slide text vertically */
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: -webkit-flex;
+      display: flex;
+      -webkit-box-pack: center;
+      -ms-flex-pack: center;
+      -webkit-justify-content: center;
+      justify-content: center;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      -webkit-align-items: center;
+      align-items: center;
+      background:#000
+      -webkit-box-reflect:below 1px linear-gradient(transparent,transparent,#0006);
+    }
