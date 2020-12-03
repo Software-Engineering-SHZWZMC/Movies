@@ -1,8 +1,6 @@
 
-<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
-<%@
-page import ="java.sql.*"
- %>
+<%@ page language="java" import="java.util.*" pageEncoding="UTF-8" import ="java.sql.*,dao.*"%>
+
 <html>
 
   <head>
@@ -14,36 +12,12 @@ page import ="java.sql.*"
   <body align="center">
 
 <%
-
 int result;
 String id=request.getParameter("name").trim();
 String logpassword=request.getParameter("password").trim();
+Dbdao douban=new Dbdao();
 
-//判断登陆界面的用户名和密码，根据输入的不同情况进行不同的处理
-Class.forName("com.mysql.jdbc.Driver"); 
-String url = "jdbc:mysql://localhost:3306/douban?useSSL=false"; //数据库名
-String username = "root";  //数据库用户名
-String password = "sxy000217";  //数据库用户密码
-ResultSet rs = null;
-Connection conn = DriverManager.getConnection(url, username, password);  //连接状态
-Statement stmt = null;  
-stmt=conn.createStatement();//stmt要先被创建好，实例化
-rs=stmt.executeQuery("select * from users where id='"+id+"' ");
-
-if(rs.next())
-{	
-	rs=stmt.executeQuery("select * from users where id='"+id+"' and password='"+logpassword+"' ");//mysql语句拼接
-	if(rs.next()){
-			result=1;      
-		}else{
-			result= 0;
-		}
-	}else{
-		result=-1;
-		}
-
-
-
+result=douban.query(id, logpassword);
 if(result==1)
 {
 	out.print(id+"登录成功");
