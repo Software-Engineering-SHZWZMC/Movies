@@ -11,9 +11,11 @@ background:white ;
 
 justify-content:center;
 align-items:center;
+background:	#AFEEEE;
 }
 .body{
 min-height:100vh;
+background:	#AFEEEE;
 }
 .clear {
     clear:both;
