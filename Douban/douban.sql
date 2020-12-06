@@ -74,7 +74,8 @@ DROP TABLE IF EXISTS `users`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `users` (
-  `ID` varchar(20) DEFAULT NULL,
+  `ID` varchar(20) NOT NULL,
+  `password` varchar(45) DEFAULT NULL,
   `tel` varchar(20) DEFAULT NULL,
   `sex` varchar(10) DEFAULT NULL,
   `netname` varchar(20) DEFAULT NULL,
@@ -83,7 +84,8 @@ CREATE TABLE `users` (
   `watched_film` varchar(200) DEFAULT NULL,
   `birthday` varchar(20) DEFAULT NULL,
   `userpicture` varchar(200) DEFAULT NULL,
-  `preferred_type` varchar(50) DEFAULT NULL
+  `preferred_type` varchar(50) DEFAULT NULL,
+  PRIMARY KEY (`ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -93,6 +95,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
+INSERT INTO `users` VALUES ('2018111165','sxy000217',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),('2018111345','123456',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL);
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -105,4 +108,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-12-01 17:21:27
+-- Dump completed on 2020-12-02 12:47:30

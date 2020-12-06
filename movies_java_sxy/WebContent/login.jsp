@@ -18,7 +18,7 @@
 
      密    码：<input type="password"value="" name="password"><br>
 
-     <input type="submit"value="提交"name="submit">
+     <input type="submit"value="提交"name="submit" >
 
      <input type="reset"value="重置">   
 

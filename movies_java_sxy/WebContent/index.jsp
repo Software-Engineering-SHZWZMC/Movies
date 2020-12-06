@@ -20,7 +20,7 @@
 <div style=" width:100px;height:100px;background:yellow ;float:right;padding-top:200px;position:absolute;">5545</div>
  -->   <div  class="index" style="position: relative;">
         <div style="float:left;">
-            
+            [文件]
         
             <div style="width: 50px;float:left"><a href="index.html" target="blank">首页</a></div>
             <div style="width: 50px;float:left"><a href="index.html" target="blank">分类</a></div>

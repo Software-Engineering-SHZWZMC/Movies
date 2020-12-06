@@ -11,7 +11,7 @@
 	<form action="registeredSucceed.jsp" method="post">
 		<table align="center">
 			<tr align="right">
-		 		<td>请输入用户名:</td>
+		 		<td>请输入学号:</td>
 				<td><input type="text" name=name autofocus="autofocus"></td>
 			</tr>
 			<tr align="right">
@@ -22,6 +22,7 @@
 				<td>请输入确认密码:</td>
 				<td><input type="text" name=refill></td>
 			</tr>
+			
 		</table>
 			<input type="submit" name=register value="注册" >
 			<input type="reset" name=refill value="重填" >
