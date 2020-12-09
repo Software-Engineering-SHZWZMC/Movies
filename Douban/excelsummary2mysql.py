@@ -5,10 +5,10 @@ book = xlrd.open_workbook("moviessummary.xlsx")
 sheet = book.sheet_by_name("Sheet1")
 
 #建立一个MySQL连接
-database = pymysql.connect(host="localhost",
+database = pymysql.connect(host="1027.0.0.1:8080",
                            user="root",
-                           passwd="sxy000217",
-                           db="douban")
+                           passwd="ws20000727",
+                           db="shujuku")
 
 # 获得游标对象, 用于逐行遍历数据库数据
 cursor = database.cursor()
