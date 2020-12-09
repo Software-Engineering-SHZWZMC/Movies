@@ -11,11 +11,12 @@ background:white ;
 
 justify-content:center;
 align-items:center;
-background:	#AFEEEE;
+background:skyblue;
 }
+
 .body{
 min-height:100vh;
-background:	#AFEEEE;
+background:salmon;
 }
 .clear {
     clear:both;
@@ -172,8 +173,8 @@ $(function() {
 })***/
 /***滑动动画的class***/
 .swiper-container {
-      width: 100%;
-      height: 100%;
+      width: 80%;
+      height: 500px;
       margin-left: auto;
       margin-right: auto;
       padding-top:50px;
