@@ -32,7 +32,7 @@
             <image src="../img/2.jpg" name="图标" width=100px height=100px></image>
         </div>
         <div style="width: 100px;float:right;">
-        <a href="self.html" target="blank">%name</a></div>
+        <a href="self.html" target="blank" value=>登录</a></div>
 
            
             
@@ -59,7 +59,40 @@
    </form>
    </div>
 <!--下面的是滑动图片的动画-->
- <jsp:include page="index.html" />
+<div class="swiper-container">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide">Slide 1</div>
+      <div class="swiper-slide">Slide 2</div>
+      <div class="swiper-slide">Slide 3</div>
+      <div class="swiper-slide">Slide 4</div>
+      <div class="swiper-slide">Slide 5</div>
+      <div class="swiper-slide">Slide 6</div>
+      <div class="swiper-slide">Slide 7</div>
+      <div class="swiper-slide">Slide 8</div>
+      <div class="swiper-slide">Slide 9</div>
+      <div class="swiper-slide">Slide 10</div>
+    </div>
+    <!-- Add Arrows -->
+    <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev"></div>
+  </div>
+  <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script> 
+   
+
+  <!-- Initialize Swiper -->
+  <script>
+    var swiper = new Swiper('.swiper-container', {
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+      loop: true,
+      autoplay: {
+          delay: 400,
+          disableOnInteraction: false,
+        },
+    });
+  </script>
     
 
 
