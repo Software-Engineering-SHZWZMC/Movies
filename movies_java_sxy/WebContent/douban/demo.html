@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+  <div class="top">
+    <div>首页</div>
+    <div>分类</div>
+    <div>Logo</div>
+    <div>消息</div>
+    <div>收藏</div>
+  </div>
+  <div class="content">
+    <div class="haibao">
+      <div><img src="./image/haibao.webp" alt="" width="100%" height="100%"></div>
+      <div>
+        <p>影名：如果声音不记得<span>点评</span></p>
+        <p>导演：郭敬明/落落</p>
+        <p>类型：爱情/奇幻</p>
+        <p>主演：章若楠</p>
+        <p>制片国家/地区：中国大陆</p>
+        <p>上映年份：2020</p>
+        <p>片长：102分钟</p>
+      </div>
+    </div>
+    <div class="introduct">
+      剧情介绍：辛唐（孙晨竣 饰）拥有通过声音给他人制造快乐的能力，但对同一人使用三次后，性命就会和此人绑定，只有对方开心，辛唐才能活命。
+    </div>
+    <div class="hot">
+      <p>热门评论（质量点评）</p>
+      <div></div>
+      <div></div>
+    </div>
+    <div class="pinglun">
+      <p>...条评论</p>
+      <div class="tab">
+        <div class="active">按热度排序</div>
+        <div>按时间排序</div>
+      </div>
+      <div class="pingluncon">
+        <div class="write">
+          <div class="head"></div>
+          <div class="text"></div>
+          <div class="btn">发表评论</div>
+        </div>
+        <div class="see">
+          <p><span></span>aaa</p>
+          <div class="seetext">asdasdf</div>
+          <span class="icon"></span>
+          <span class="icon"></span>
+        </div>
+        <div class="see">
+          <p><span></span>aaa</p>
+          <div class="seetext">asdasdf</div>
+          <span class="icon"></span>
+          <span class="icon"></span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div style="height:100px;"></div>
+
+  <script src="http://libs.baidu.com/jquery/2.1.4/jquery.min.js"></script>
+  <script>
+    $.ajax({
+      url: './data.json',
+      type: 'get',
+      async: false,
+      dataType: "json",
+      success: function (data) {
+        var haibaoHtml = `
+          <div><img src="${data.picturelink}" alt=""></div>
+          <div>
+            <p>影名：${data.moviename}<span>点评</span></p>
+            <p>导演：${data.director1}${data.director2?'/'+data.director2:''}</p>
+            <p>类型：${data.movietype1}${data.movietype2?'/'+data.movietype2:''}${data.movietype3?'/'+data.movietype3:''} ${data.movietype4?'/'+data.movietype4:''} ${data.movietype5?'/'+data.movietype5:''}</p>
+            <p>制片国家/地区：${data.countryordistrict}</p>
+            <p>上映年份：${data.movieyear}</p>
+            <p>片长：${data.movietime}</p>
+          </div>
+        `
+        var introductHtml = `${data.moviesummary}`
+        $(".haibao").html(haibaoHtml)
+        $(".introductHtml").html(introductHtml)
+      }
+    })
+
+  </script>
+</body>
+
+</html>
