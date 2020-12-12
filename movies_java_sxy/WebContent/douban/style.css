@@ -1,0 +1,195 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-width: 800px;
+}
+
+/* 头部 */
+.top {
+  width: 100%;
+  line-height: 50px;
+  text-align: center;
+  border-bottom: 1px solid #ccc;
+}
+
+.top>div {
+  display: inline-block;
+  width: 19%;
+}
+
+/* 内容 */
+.content {
+  width: 800px;
+  margin: 0 auto;
+}
+
+.content>div {
+  margin-top: 20px;
+}
+
+/* 海报部分 */
+.haibao>div:nth-of-type(1) {
+  width: 215px;
+  height: 300px;
+  display: inline-block;
+  border: 1px solid #000;
+  vertical-align: top;
+}
+
+.haibao>div:nth-of-type(1)>img {
+  width: 100%;
+  height: 100%;
+}
+
+/* 海报详情信息 */
+.haibao>div:nth-of-type(2) {
+  width: 560px;
+  display: inline-block;
+  margin-left: 20px;
+}
+
+.haibao>div:nth-of-type(2)>p {
+  margin-top: 5px;
+}
+
+/* 点评 */
+.haibao span {
+  float: right;
+  border: 1px solid #000;
+}
+
+/* 剧情介绍 */
+.introduct {
+  border: 1px solid #000;
+  height: 100px;
+}
+
+/* 热门评论 */
+.hot {
+  height: 110px;
+}
+
+.hot>div {
+  width: 49%;
+  border: 1px solid #000;
+  display: inline-block;
+  height: 80px;
+  margin-top: 10px;
+}
+
+.hot>div:nth-of-type(2) {
+  margin-left: 1%;
+}
+
+/* 评论头部 */
+.pinglun>.tab {
+  border-bottom: 1px solid #000;
+  line-height: 35px;
+  display: flex;
+}
+
+.pinglun>.tab>div:nth-of-type(2) {
+  margin-left: 50px;
+}
+
+/* 当前选中 */
+.pinglun>.tab>.active {
+  position: relative;
+  overflow: hidden;
+}
+
+/* 突出三角形 */
+.pinglun>.tab>.active::before {
+  position: absolute;
+  content: ' ';
+  width: 10px;
+  height: 10px;
+  background: #000;
+  bottom: 0;
+  transform: translate(-50%, 50%) rotate(45deg);
+  left: 50%;
+}
+
+/* 写评论 */
+.write {
+  display: flex;
+  margin-top: 10px;
+}
+
+/* 头像 */
+.write>.head {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: #ccc;
+  vertical-align: middle;
+}
+
+/* 输入区 */
+.write>.text {
+  width: 500px;
+  height: 100px;
+  margin-left: 20px;
+  position: relative;
+  border: 1px solid #000;
+}
+
+/* 突出三角形 */
+.write>.text::before {
+  content: ' ';
+  width: 10px;
+  height: 10px;
+  position: absolute;
+  background: #fff;
+  border-bottom: 1px solid #000;
+  border-left: 1px solid #000;
+  top: 50%;
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+
+/* 发表评论 */
+.write>.btn {
+  width: 100px;
+  height: 100px;
+  border: 1px solid #000;
+  margin-left: 20px;
+}
+
+/* 他人评论 */
+.see {
+  margin-top: 15px;
+}
+
+/* 头像 */
+.see>p>span {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  background: #ccc;
+  margin-right: 20px;
+  border-radius: 50%;
+  vertical-align: top;
+}
+
+/* 评论内容 */
+.see>.seetext {
+  display: inline-block;
+  min-width: 450px;
+  padding: 15px;
+  margin-left: 50px;
+  border: 1px solid #000;
+}
+
+/* 右侧图标 */
+.see>.icon {
+  width: 20px;
+  height: 20px;
+  display: inline-block;
+  background: #ccc;
+  vertical-align: bottom;
+  margin-left: 10px;
+}
