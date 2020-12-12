@@ -17,8 +17,8 @@ def main():
     base = "https://movie.douban.com/top250"
     info = []
     global rank
-    rank = 186
-    for page in range(186, 250, 25):
+    rank = 0
+    for page in range(0, 250, 25):
         url = base + "?start=" + str(page)
         html = get_html_text(url)
         get_page_info(html, info)

@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" import="java.util.*" pageEncoding="UTF-8" import ="java.sql.*,dao.*"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,16 +10,9 @@
 int result;
 String id=request.getParameter("name").trim();
 String logpassword=request.getParameter("password").trim();
-<!--这里改自己的类-->
 Dbdao douban=new Dbdao();
-这里改成增加查询自己的用户名
 result=douban.query(id, logpassword);
-if(result==1)
-{
-	out.print(id+"登录成功");
-	session.setAttribute("username",name);
-	response.sendRedirect("index2.jsp");
-}
+
 if(result==0)
 {
 	out.print("密码输入错误！！！<br>"+"重新<a href=\"login.jsp\">登录</a>");
