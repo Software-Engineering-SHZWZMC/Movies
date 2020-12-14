@@ -9,7 +9,7 @@ public class Dbdao {
 	private Connection con=null;
 	public  Dbdao() 
 	{
-		String url = "jdbc:mysql://localhost:3306/douban"; 
+		String url = "jdbc:mysql://localhost:3306/douban?useSSL=false"; 
 		String username = "root";  
 		String password = "sxy000217";  
 		
@@ -71,7 +71,7 @@ public class Dbdao {
 	/**
 	 * 
 	 * @param id
-	 * @return resultset，返回查询结果集，包含了用户的所有信息。
+	 * @return resultset，返回查询结果集，包含了用户的所有信息，其中@是watched_film的分隔符。
 	 * @throws SQLException
 	 * 该函数需要在登录成功之后调用。
 	 */
@@ -94,7 +94,7 @@ public class Dbdao {
 	 * @param refill
 	 * @return 返回注册是否成功，返回0，id不是10位数字，返回1，id已经存在，返回2，注册成功，返回3，两次输入密码不一致。
 	 */
-	public int registered(String id,String password,String refill) {
+	public int registered(String id,String password,String refill,String tel) {
 		Statement stmt=null;
 		int result = 0;
 		ResultSet rs=null;
@@ -110,7 +110,7 @@ public class Dbdao {
 			}
 			else{
 				if(password.equals(refill)){
-	 				stmt.executeUpdate("insert into users(id,password) values('"+id+"','"+ password + "');");
+	 				stmt.executeUpdate("insert into users(id,password,tel) values('"+id+"','"+ password + "','"+tel+"');");
 	 				result=2;
 				}
 				else {
@@ -124,6 +124,11 @@ public class Dbdao {
 		}		
 		return result;
 	}
+	/**
+	 * @param rank
+	 * @return resultset
+	 * 返回了rank电影的所有信息。
+	 */
 	public ResultSet querymovies(String rank) {
 		Statement stmt=null;
 		ResultSet rs=null;
@@ -136,6 +141,109 @@ public class Dbdao {
 		}
 		return rs;
 	}
+	public void updateusers(String id,String username,String signature) throws SQLException 
+	{
+		Statement stmt=null;
+		stmt=con.createStatement();
+		String sql="update users set netname='"+username+"' where ID='"+id+"'";
+		stmt.execute(sql);
+		String sql2="update users set signature='"+signature+"' where ID='"+id+"'";
+		stmt.execute(sql2);
+	
+	}
+	/**
+	 * @param rank
+	 * @param userid
+	 * 给看过该电影的人数加一，同时用户观看过的电影增加该电影
+	 * @throws SQLException 
+	 */
+	public void updatewatcher_num(String rank,String userid) throws SQLException
+	{
+		Statement stmt=null;
+		stmt=con.createStatement();
+		String sql="update movies set watcher_num=watcher_num+1 where rank='"+rank+"'";
+		stmt.execute(sql);
+		Statement stmt2=null;
+		stmt2=con.createStatement();
+		ResultSet rs=this.querymovies(rank);
+		String moviename="";
+		while (rs.next()) {
+			moviename=rs.getString(2);
+			
+		}
+		ResultSet rs2=this.querytoshow(userid);
+		String watched_film="";
+		while (rs2.next()) {
+			watched_film=rs2.getString(7);
+		}
+		if (!watched_film.contains(moviename)) 
+		{
+			String newwatched_film=watched_film+moviename+"@";//用@作为分隔符
+			String sql2="update users set watched_film='"+newwatched_film+"' where id='"+userid+"'";
+			stmt.execute(sql2);
+		}
+		
+		
+		
+	}
+	/**
+	 * @param rank
+	 * @param userid
+	 * 给评价电影的人数加1.
+	 * @throws SQLException 
+	 */
+	public void updatecomment_num(String rank,int tagnumber) throws SQLException
+	{
+		Statement stmt=null;
+		stmt=con.createStatement();
+		
+		ResultSet rs=this.querymovies(rank);
+		String content_tag="";
+		while(rs.next())
+		{
+			content_tag=rs.getString(tagnumber+21);
+			
+		}
+		String newtag = "";
+		String content=content_tag.split(",")[0];
+		String num = content_tag.split(",")[1];
+		String newnum=String.valueOf((Integer.parseInt(num)+1));
+		newtag=content+","+newnum;
+		String column="content_tag"+tagnumber;
+		String sql="update movies set "+column+" ='"+newtag+"' where rank='"+rank+"'";
+		stmt.execute(sql);
+		
+		
+	}
+	/**
+	 * @param rank
+	 * @param userid
+	 * 更新电影打分。
+	 * @throws SQLException 
+	 */
+	public void updateaverage_star(String rank,String star) throws SQLException
+	{
+		Statement stmt=null;
+		stmt=con.createStatement();
+		ResultSet rs=this.querymovies(rank);
+		float average_star=0;
+		float comment_num=0;
+		float newaverage=0;
+		String newstar = null;
+		while (rs.next()) {
+			average_star=Float.parseFloat(rs.getString("average_star"));
+			comment_num=Float.parseFloat(rs.getString("comment_num"));
+			newaverage=(Float.parseFloat(star)+comment_num*average_star)/(comment_num+1);	
+			newstar=Float.toString(newaverage);
+		}
+		String sql="update movies set comment_num=comment_num+1 where rank='"+rank+"'";
+		stmt.execute(sql);
+		Statement stmt1=null;
+		stmt1=con.createStatement();
+		String sql1="update movies set average_star='"+newstar+"' where rank='"+rank+"'";
+		stmt1.execute(sql1);
+	}
+	
 	/**
 	 * @param term
 	 * @return 返回查询电影的rank，名字，链接，国家地区（搜索页面使用)
@@ -159,55 +267,39 @@ public class Dbdao {
 	 * @return 返回筛选结果，结果包括电影rank,名字，图片链接
 	 * @throws SQLException 
 	 */
-	public ResultSet screen(String country,String year,String type) throws SQLException {
-		PreparedStatement stmt=null;
+	public ResultSet screen(String country,String movieyear,String movietype) throws SQLException {
+		Statement stmt=null;
 		ResultSet rs=null;
 		String term1 = null,term2,term3,term4,term5,term6,term7;
-		
-		String sql="select rank,moviename,picturelink from movies where countryordistrict like ? and movieyear like ? and movietype1=? or movietype2=?"
-				+ "or movietype3=? or movietype4=? or movietype5=?";
-		stmt=con.prepareStatement(sql);
-		if(country.equals("all"))
+		String sql="select rank,moviename,picturelink from movies where 1=1";
+		stmt=con.createStatement();
+		if(!country.equals("all"))
 		{
-			term1="%%";
+			sql+=" and countryordistrict like '%"+country+"%'";
 		}
-		else {
-			term1="'%"+country+"%'";
-		}
-		stmt.setString(1, term1);
-		if(year.equals("all"))
+		if (!movietype.equals("all")) 
 		{
-			term2="%%";
+			sql+=" and (movietype1 like '%"+movietype+"%' or movietype2 like '%"+movietype+"%' or movietype3 like '%"+movietype+"%' or movietype4 like '%"+movietype+"%' or movietype5 like '%"+movietype+"%')";
 		}
-		
-		else if (year.equals("00年代")) 
+		if(!movieyear.equals("all"))
 		{
-			term2="'"+200+"%'";
-		}
-		else if (year.contains("年代"))
-		{
-			year="19"+year.charAt(0);
-			term2="'"+year+"%'";
-		}
-		else
-		{
-			term2="'"+year+"'";
-		}
-		if(type.equals("all"))
-		{
-			term3=term4=term5=term6=term7="%%";
-		}
-		else {
-			term3=term4=term5=term6=term7="'%"+type+"%'";
+			if (movieyear.equals("00年代"))
+			{
+				String year="200";
+				sql+=" and movieyear like '"+year+"%'";
+			}
+			else if (movieyear.contains("年代"))
+			{
+				String year="19"+movieyear.charAt(0);
+				sql+=" and movieyear like '"+year+"%'";
+			}
+			else {
+				sql+=" and movieyear = '"+movieyear+"'";
+			}
+			
+			
 		}
 		try {
-			stmt.setString(1, term1);
-			stmt.setString(2, term2);
-			stmt.setString(3, term3);
-			stmt.setString(4, term4);
-			stmt.setString(5, term5);
-			stmt.setString(6, term6);
-			stmt.setString(7, term7);
 			rs=stmt.executeQuery(sql);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block

@@ -1,0 +1,128 @@
+
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			.first{
+				height:60px;
+				width: 1000px;
+				background-color: black;
+			}
+			
+			.second{
+				height: 500px;
+				width: 1000px;
+				background-color: yellowgreen;
+				
+			}
+			.third{
+				height: 20px;
+				width: 1000px;
+				background-color: black;
+
+			}
+			h1{
+				color: white;
+				margin-left:20px;
+			}
+			.L{
+				height: 240px;
+				width: 150px ;
+				
+				margin-left: 5px;
+				float: left;
+			}
+			.second a{
+				display: block;
+				height: 25px;
+				width: 180px;
+				list-style: none;
+				text-decoration: none;
+				color: black;
+				margin:0px 5px 5px 5px;
+				padding-left:5px ;
+				background-color: blue;
+			}
+			.up{
+				height:240px;
+				width: 800px;
+				background-color: orange;
+				float: right;
+			}
+			
+			.picture1{
+				height: 230px;
+				width: 490px;
+				background-color:pink;
+				float: left;
+				margin: 5px;
+			}
+			.decoration1{
+				height: 230px;
+				width: 290px;
+				background-color: skyblue;
+				float: right;
+				margin: 5px;
+				
+			}
+			h3{
+				padding-top: 10px;
+				padding-bottom: 20px;
+			}
+			.span1{
+				font-size: 11px;
+			}
+			.down{
+				height:240px;
+				width: 800px;
+				background-color: orange;
+				float: right;
+				margin-top: 10px;
+			}
+			.L1{
+				height: 230px;
+				width: 390px;
+				background-color:pink;
+				float: left;
+				margin: 5px;
+			}
+			.R1{
+				height: 230px;
+				width: 390px;
+				background-color: skyblue;
+				float: right;
+				margin: 5px;
+			}
+			.picture2{
+				height: 100px;
+				width: 150px;
+				background-color:yellow;
+				float: left;
+			}
+			.decoration2{
+				height: 100px;
+				width: 230px;
+				background-color:cyan;
+				float: right;
+			}
+			.decoration3{
+				height: 100px;
+				width: 230px;
+				background-color:cyan;
+				float: right;
+			}
+			.picture3{
+				height: 100px;
+				width: 150px;
+				background-color:yellow;
+				float: left;
+			}
+			.classA{
+				display: block;
+				width: 150px;
+				color: white;
+				font-family: "Î¢ÈíÑÅºÚ";
+				margin:0px auto;
+			}
+		
+	

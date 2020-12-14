@@ -17,31 +17,47 @@
 		String name=request.getParameter("name").trim();//去除首尾空格
 		String password=request.getParameter("password").trim();
 		String refill=request.getParameter("refill").trim();
+		String tel=request.getParameter("tel").trim();
 		Dbdao douban=new Dbdao();
 
 		int result;
+		
 		try{
 
-
+		
 		if(name!=null ){
-			result=douban.registered(name, password, refill);
+			result=douban.registered(name, password, refill,tel);
+			if(result==0)
+			{%>
 			
-			if(result==1){
-				out.print("该学号已经存在  "+"请<a href=\"login.jsp\">登录</a>");//返回值为1，账号存在
+				<script type="text/javascript" language="javascript">
+				alert("非十位学号");
+				window.location.href="registered.jsp";
+				</script> 
+			<% }%>
+			<% 
+			if(result==1){%>
+				<script type="text/javascript" language="javascript">
+				alert("该学号已经存在了");
+				window.location.href="registered.jsp";
+				</script> 
+				<% 
 			}else{
 				if(result==2){//返回2，成功注册
 
 				%>
-				注册成功！！！<br>
-				三秒钟后自动转到登录页面！！！<br>
-				如果没有跳转，请点击<a href="login.jsp">这里</a>！！！
-				<span style="font-size:24px;"><meta http-equiv="refresh" content="3;URL=login.jsp"> </span>
+				<script type="text/javascript" language="javascript">
+				alert("注册成功");
+				window.location.href="login.jsp";
+				</script> 
 <% 
 				}else{//返回3，密码输入不一致
-				if (result==3){
-				out.print(result);
-				out.print("密码输入不一致!!!<br>"+"重新<a href=\"registered.jsp\">注册</a>");
-				}
+				if (result==3){%>
+				<script type="text/javascript" language="javascript">
+				alert("两次密码输入不一致");
+				window.location.href="registered.jsp";
+				</script> 
+				<% }
 				}
 			}
 			}else {

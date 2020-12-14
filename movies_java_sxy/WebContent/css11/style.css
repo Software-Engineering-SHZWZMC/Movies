@@ -1,0 +1,130 @@
+/*body
+{
+    margin: 0; 
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: absolute;
+    overflow: hidden;
+  
+
+}*/
+
+#bigBox
+{
+    margin:auto auto;
+    margin-top: 10px;
+    padding: 5px 5px;
+    background-color:rgba(0,0,0, 0.5);
+   
+    width: 100%;
+    height:100%;
+    border-radius: 40px;
+    text-align: center;  
+   
+}
+#bigBox h3
+{
+    color: white;
+
+}
+#bigBox .inputBox
+{
+    margin-top: 30px;    
+}
+#bigBox .inputText
+{
+    margin-top: 20px;
+    
+}
+#bigBox .inputText span
+{
+    color: white;
+    
+}
+#bigBox .inputText input
+{
+    border: 0;
+    width: 80%;
+    height: 40px;
+    padding:10px 10px;
+    background-color:rgba(0,0,0, 0.6);
+    border-radius: 10px;
+    color: white;
+    
+}
+#bigBox .inputButton
+{
+    border: 0;
+    width: 60px;
+    height: 30px;
+    color: white;
+    font-size: 16px;
+    margin: 10px 10px;
+    padding-bottom: 3px;
+    border-radius: 20px;
+    background-image: linear-gradient(to right, #eea2a2 0%, #b49fda 100%);
+    
+}
+
+
+
+#bigBox2
+{
+    margin: 0 auto;
+    margin-top: 120px;
+    padding: 20px 50px;
+    background-color:rgba(0,0,0, 0.5);
+   
+    width: 400px;
+    height: 430px;
+    border-radius: 40px;
+    text-align: center;  
+   
+}
+#bigBox2 h1
+{
+    color: white;
+
+}
+#bigBox2 .inputBox
+{
+    margin-top: 30px;    
+}
+#bigBox2 .inputBox .inputText
+{
+    margin-top: 20px;
+    
+}
+#bigBox2 .inputBox .inputText span
+{
+    color: white;
+    
+}
+#bigBox2 .inputBox .inputText input
+{
+    border: 0;
+    width: 250px;
+    height: 40px;
+    padding:10px 10px;
+    background-color:rgba(0,0,0, 0.6);
+    border-radius: 10px;
+    color: white;
+    
+}
+#bigBox2 .inputBox .inputButton
+{
+    border: 0;
+    width: 120px;
+    height: 40px;
+    color: white;
+    font-size: 20px;
+    margin: 30px 10px;
+    padding-bottom: 5px;
+    border-radius: 20px;
+    background-image: linear-gradient(to right, #eea2a2 0%, #b49fda 100%);
+    
+}
+
