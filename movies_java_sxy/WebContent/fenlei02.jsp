@@ -24,10 +24,17 @@
 
 
 			<div style="width: 50px; float: left">
+<<<<<<< Updated upstream
 				<a href="index.html" target="blank">首页</a>
 			</div>
 			<div style="width: 50px; float: left">
 				<a href="index.html" target="blank">分类</a>
+=======
+				<a href="index.jsp" target="blank">首页</a>
+			</div>
+			<div style="width: 50px; float: left">
+				<a href="fenlei02.jsp" target="blank">分类</a>
+>>>>>>> Stashed changes
 			</div>
 
 

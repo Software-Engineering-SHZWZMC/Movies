@@ -41,7 +41,11 @@ if(result==-1)
 { %>
 	<script type="text/javascript" language="javascript">
 	alert("用户不存在，请注册！");
+<<<<<<< Updated upstream
 	window.location.href='register.jsp';
+=======
+	window.location.href='registered.jsp';
+>>>>>>> Stashed changes
 	</script> 
 <% 
 }%>

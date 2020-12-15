@@ -410,8 +410,13 @@ location.reload();
       </form>
       <nav>
         <ul class="lavaLampWithImage" id="lava_menu">
+<<<<<<< Updated upstream
           <li><a href="index.html">主页</a></li>
           <li><a href="examples.html">分类</a></li>
+=======
+          <li><a href="index.jsp">主页</a></li>
+          <li><a href="fenlei02.jsp">分类</a></li>
+>>>>>>> Stashed changes
           <li><a href=<%=src %>><%=username %></a></li>
           
         </ul>

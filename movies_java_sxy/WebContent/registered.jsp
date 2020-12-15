@@ -16,7 +16,11 @@ background="background/hkp"+ranl+".jpg";
     <form action="registeredSucceed.jsp" method="post" name=form >
 	<ul id="menu">
     
+<<<<<<< Updated upstream
         <li><a href="#">首页</a></li>
+=======
+        <li><a href="index.jsp">首页</a></li>
+>>>>>>> Stashed changes
         <li><a href="#">关于</a></li>
     </ul>
     <div id="bigBox2">
